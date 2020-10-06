@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.14.0.final using JasperReports Library version 6.14.0-2ab0d8625be255bf609c78e1181801213e51db8f  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="5PONE" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryWithPageHeaderAndFooter="true" uuid="f34248b4-b908-4b30-8839-d8aa10f18f18">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<parameter name="P1" class="java.lang.String"/>
+	<parameter name="CODEQR" class="java.lang.String"/>
+	<parameter name="PONENCIA" class="java.lang.String"/>
+	<parameter name="P2" class="java.lang.String"/>
+	<parameter name="P3" class="java.lang.String"/>
+	<parameter name="P4" class="java.lang.String"/>
+	<parameter name="P5" class="java.lang.String"/>
+	<parameter name="P6" class="java.lang.String"/>
+	<parameter name="P7" class="java.lang.String"/>
+	<parameter name="P8" class="java.lang.String"/>
+	<parameter name="P9" class="java.lang.String"/>
+	<parameter name="P10" class="java.lang.String"/>
+	<parameter name="P11" class="java.lang.String"/>
+	<parameter name="P12" class="java.lang.String"/>
+	<parameter name="P13" class="java.lang.String"/>
+	<parameter name="P14" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<detail>
+		<band height="842" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="0" y="0" width="595" height="842" uuid="cd7f599f-662a-47dd-9fe0-78f8abae2ab6">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA["../images/5PONE.png"]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="87" y="500" width="445" height="32" uuid="149fdb4a-9743-41ea-88c9-d3e9039cf848">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="0"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P1}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement mode="Opaque" x="5" y="748" width="73" height="73" isPrintWhenDetailOverflows="true" uuid="075bd04b-ebbf-4ecc-b5d2-5fef7141dee9">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" margin="1" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$P{CODEQR}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField>
+				<reportElement x="2" y="824" width="83" height="15" uuid="a08a717b-bb50-49b0-b9c4-fcca0ee7356f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CODEQR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="61" y="571" width="489" height="79" uuid="27640827-b962-4e33-8bbe-fabe363aca6c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PONENCIA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
