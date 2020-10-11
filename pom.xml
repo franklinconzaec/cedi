@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.franklinconza</groupId>
-    <artifactId>cedi-backend-spring</artifactId>
+    <artifactId>cedi-springboot-primefaces</artifactId>
     <version>1.0</version>
     <name>cedi-backend-spring</name>
     <description>Demo project for Spring Boot</description>
