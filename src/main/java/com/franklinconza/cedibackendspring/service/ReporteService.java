@@ -24,6 +24,15 @@ public class ReporteService {
 
     public <T> void certificadoPdf(Inscripcion inscripcion) throws IOException, JRException {
         File file = ResourceUtils.getFile("classpath:cedi/reports/" + inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper");
+        //InputStream reportStream = FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(
+        //        "classpath:cedi/reports/" + inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper");
+
+        String pathToMyFile = null;
+        if (!System.getProperty("os.name").startsWith("Windows")) {
+            file = ResourceUtils.getFile("classpath:cedi/reports/" + inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper");
+        } else {
+            file = ResourceUtils.getFile(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/reportes") + "/" + inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper");
+        }
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("NOMBRES", inscripcion.getNombre().trim().toUpperCase());
@@ -31,6 +40,8 @@ public class ReporteService {
                 + (inscripcion.getPonentes() != null && inscripcion.getPonentes().size() > 0 ? "_P" + inscripcion.getPonentes().get(0).getPonencia().getId() : ""));
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(file.getAbsolutePath(), parameters, new JREmptyDataSource(1));
+        //JasperPrint jasperPrint = JasperFillManager.fillReport(reportStream, parameters, new JREmptyDataSource(1));
+
         respondeServidor(jasperPrint, inscripcion.getId().toString());
     }
 
