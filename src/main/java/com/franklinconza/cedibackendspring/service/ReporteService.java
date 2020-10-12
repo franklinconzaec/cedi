@@ -31,7 +31,8 @@ public class ReporteService {
         if (!System.getProperty("os.name").startsWith("Windows")) {
             file = ResourceUtils.getFile("classpath:cedi/reports/" + inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper");
         } else {
-            file = ResourceUtils.getFile(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/reportes") + "/" + inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper");
+            System.out.println(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/reportes"));
+            file = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/reportes") + "/" + inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper");
         }
 
         Map<String, Object> parameters = new HashMap<>();
