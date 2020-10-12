@@ -24,8 +24,8 @@ public class ReporteService {
 
     public <T> void certificadoPdf(Inscripcion inscripcion) throws IOException, JRException {
         File file;
-
-        if (!System.getProperty("os.name").startsWith("Windows")) {
+        System.out.println("Sistema operativo: " + System.getProperty("os.name"));
+        if (System.getProperty("os.name").startsWith("Windows") || System.getProperty("os.name").startsWith("Mac")) {
             file = ResourceUtils.getFile("classpath:cedi/reports/" + inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper");
         } else {
             file = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("/app/src/main/resources/cedi/reports") + "/" + inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper");
