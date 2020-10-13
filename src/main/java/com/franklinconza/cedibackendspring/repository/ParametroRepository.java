@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ParametroRepository extends JpaRepository<ParametroRepository, Integer> {
+public interface ParametroRepository extends JpaRepository<Parametro, Integer> {
 
     @Query("select p from Parametro p where p.id = :id")
     Parametro getById(@Param("id") Integer id);

@@ -11,6 +11,7 @@ import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
@@ -50,7 +51,8 @@ public class InscripcionController implements Serializable {
         this.reporteService = reporteService;
     }
 
-    public void a() {
+    @PostConstruct
+    public void postConstruct() {
         Parametro parametro = parametroService.getById(1);
         empresa = parametro.getEmpresa();
     }
