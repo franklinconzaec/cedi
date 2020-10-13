@@ -50,7 +50,7 @@ public class ReporteService {
         } else
             parameters.put("NOMBRES", inscripcion.getNombre().trim().toUpperCase());
 
-        parameters.put("CODEQR", "I" + codeqr);
+        parameters.put("CODEQR", codeqr);
 
         File file;
         String nombreReporte = inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper";
