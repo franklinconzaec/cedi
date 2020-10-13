@@ -1,9 +1,6 @@
 package com.franklinconza.cedibackendspring;
 
-import javax.faces.webapp.FacesServlet;
-
 import com.sun.faces.config.ConfigureListener;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
@@ -11,6 +8,8 @@ import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import javax.faces.webapp.FacesServlet;
 
 @SpringBootApplication
 @EnableTransactionManagement

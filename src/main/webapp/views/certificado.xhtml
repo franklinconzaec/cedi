@@ -41,8 +41,11 @@
 
             <h:form id="formCertificadosPonencias" target="_blank">
                 <p:dataTable var="inscripcion" value="#{inscripcionController.inscripciones}"
-                             emptyMessage="Usted no posee certificados para descargar"
-                             reflow="true">
+                             emptyMessage="Usted no posee certificados para descargar" reflow="true">
+
+                    <p:column headerText="Código único de certificado">
+                        <h:outputText value="#{'I'.concat(inscripcion.id)}"/>
+                    </p:column>
 
                     <p:column headerText="Usuario">
                         <h:outputText value="#{inscripcion.nombre}"/>
