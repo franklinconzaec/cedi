@@ -10,55 +10,78 @@
 
 <h:body>
 
-    <h:form id="busqueda">
-        <br></br>
-        <div class="ui-g">
-            <div class="ui-g-12 ui-md-6 ui-lg-9">
+    <p:layout fullPage="true">
+
+        <p:layoutUnit position="north" resizable="true">
+            <h:panelGrid>
+                <p:outputLabel value="Universidad Técnica de Machala - Centro de Investigaciones"
+                               style="font-size: 19px; font-weight: bold;"/>
+                <p:outputLabel value="Módulo para la descarga de CErtificados DIgitales"
+                               style="font-size: 19px; font-weight: bold;"/>
+            </h:panelGrid>
+        </p:layoutUnit>
+
+        <p:layoutUnit position="center">
+
+            <h:form id="busqueda">
+                <br></br>
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-6 ui-lg-9">
                 <span class="ui-float-label">
                     <p:inputText value="#{inscripcionController.nombre}" style="width: 100%"/>
                     <p:outputLabel for="@previous" value="Ingrese sus nombres o apellidos"/>
                 </span>
-            </div>
-            <div class="ui-g-12 ui-md-6 ui-lg-3">
-                <p:commandButton value="Buscar" actionListener="#{inscripcionController.buscar}"
-                                 update="formCertificadosPonencias" style="width: 100%"/>
-            </div>
-        </div>
-    </h:form>
+                    </div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                        <p:commandButton value="Buscar" actionListener="#{inscripcionController.buscar}"
+                                         update="formCertificadosPonencias" style="width: 100%"/>
+                    </div>
+                </div>
+            </h:form>
 
-    <h:form id="formCertificadosPonencias" target="_blank">
-        <p:dataTable var="inscripcion" value="#{inscripcionController.inscripciones}"
-                     emptyMessage="Usted no posee certificados para descargar"
-                     reflow="true">
+            <h:form id="formCertificadosPonencias" target="_blank">
+                <p:dataTable var="inscripcion" value="#{inscripcionController.inscripciones}"
+                             emptyMessage="Usted no posee certificados para descargar"
+                             reflow="true">
 
-            <p:column headerText="Usuario">
-                <h:outputText value="#{inscripcion.nombre}"/>
-            </p:column>
+                    <p:column headerText="Usuario">
+                        <h:outputText value="#{inscripcion.nombre}"/>
+                    </p:column>
 
-            <p:column headerText="Tipo Participante">
-                <h:outputText value="#{inscripcion.rol.descripcion}"/>
-            </p:column>
+                    <p:column headerText="Tipo Participante">
+                        <h:outputText value="#{inscripcion.rol.descripcion}"/>
+                    </p:column>
 
-            <p:column headerText="Evento">
-                <h:outputText value="#{inscripcion.evento.nombre}"/>
-            </p:column>
+                    <p:column headerText="Evento">
+                        <h:outputText value="#{inscripcion.evento.nombre}"/>
+                    </p:column>
 
-            <p:column headerText="Ponencia">
-                <h:outputText value="#{inscripcion.ponentes.size() > 0 ? inscripcion.ponentes.get(0).ponencia.tema : ''}"/>
-            </p:column>
+                    <p:column headerText="Ponencia">
+                        <h:outputText
+                                value="#{inscripcion.ponentes.size() > 0 ? inscripcion.ponentes.get(0).ponencia.tema : ''}"/>
+                    </p:column>
 
-            <p:column headerText="Descargar" style="text-align: center;">
-                <p:tooltip for="btnDescargar" value="Descargar"/>
-                <p:commandButton id="btnDescargar" value="Descargar"
-                                 action="#{inscripcionController.descargarCertificado}"
-                                 ajax="false">
-                    <f:setPropertyActionListener value="#{inscripcion}" target="#{inscripcionController.inscripcion}"/>
-                </p:commandButton>
-            </p:column>
+                    <p:column headerText="Descargar" style="text-align: center;">
+                        <p:tooltip for="btnDescargar" value="Descargar"/>
+                        <p:commandButton id="btnDescargar" value="Descargar"
+                                         action="#{inscripcionController.descargarCertificado}"
+                                         ajax="false">
+                            <f:setPropertyActionListener value="#{inscripcion}"
+                                                         target="#{inscripcionController.inscripcion}"/>
+                        </p:commandButton>
+                    </p:column>
 
-        </p:dataTable>
+                </p:dataTable>
 
-    </h:form>
+            </h:form>
+
+        </p:layoutUnit>
+
+        <p:layoutUnit position="south" resizable="true">
+            <p:outputLabel value="Franklin Conza-Apolo (@franklinconzaec), Copyright © 2020 All rights reserved."/>
+        </p:layoutUnit>
+
+    </p:layout>
 
 </h:body>
 

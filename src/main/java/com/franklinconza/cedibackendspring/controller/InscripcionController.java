@@ -24,12 +24,6 @@ public class InscripcionController implements Serializable {
     private final InscripcionService inscripcionService;
     private final ReporteService reporteService;
 
-    //@Autowired
-    //private InscripcionPonenciaService inscripcionPonenciaService;
-
-    //@Autowired
-    //private ReporteService reporteService;
-
     @Getter
     @Setter
     private String nombre;
