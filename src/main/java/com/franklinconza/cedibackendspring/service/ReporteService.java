@@ -26,7 +26,7 @@ public class ReporteService {
     public void certificadoPdf(Inscripcion inscripcion) throws IOException, JRException {
 
         Map<String, Object> parameters = new HashMap<>();
-        String tipo = "";
+        String codeqr = "I" + inscripcion.getId();
 
         if (inscripcion.getPonentes().size() > 0 && inscripcion.getPonentes().get(0).getPonencia().getId() != null) {
             String ponentes = "";
@@ -37,20 +37,20 @@ public class ReporteService {
                     ponentes = ponentes.concat(ponente.getInscripcion().getNombre().toUpperCase()).concat("\n");
 
             if (inscripcion.getRol().getId().compareTo("PONE") == 0)
-                tipo = "_P";
+                codeqr = codeqr + "_P";
             else if (inscripcion.getRol().getId().compareTo("CONF") == 0)
-                tipo = "_C";
+                codeqr = codeqr + "_C";
             else if (inscripcion.getRol().getId().compareTo("INVE") == 0)
-                tipo = "_D";
+                codeqr = codeqr + "_D";
 
-            tipo = tipo + inscripcion.getPonentes().get(0).getPonencia().getId();
+            codeqr = codeqr + inscripcion.getPonentes().get(0).getPonencia().getId();
 
             parameters.put("NOMBRES", ponentes);
             parameters.put("PONENCIA", inscripcion.getPonentes().get(0).getPonencia().getTema());
         } else
             parameters.put("NOMBRES", inscripcion.getNombre().trim().toUpperCase());
 
-        parameters.put("CODEQR", "I" + inscripcion.getId() + tipo);
+        parameters.put("CODEQR", "I" + codeqr);
 
         File file;
         String nombreReporte = inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper";
@@ -62,9 +62,7 @@ public class ReporteService {
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(file.getAbsolutePath(), parameters, new JREmptyDataSource(1));
 
-        String nombreCertificado = "E" + inscripcion.getEvento().getId() + "_" + inscripcion.getRol().getId() + "_I" + inscripcion.getId() + tipo;
-
-        respondeServidor(jasperPrint, nombreCertificado);
+        respondeServidor(jasperPrint, codeqr);
     }
 
     public void respondeServidor(JasperPrint jasperPrint, String nombreCertificado) throws JRException, IOException {
