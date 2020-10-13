@@ -1,7 +1,9 @@
 package com.franklinconza.cedibackendspring.controller;
 
 import com.franklinconza.cedibackendspring.model.Inscripcion;
+import com.franklinconza.cedibackendspring.model.Parametro;
 import com.franklinconza.cedibackendspring.service.InscripcionService;
+import com.franklinconza.cedibackendspring.service.ParametroService;
 import com.franklinconza.cedibackendspring.service.ReporteService;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,8 +23,13 @@ public class InscripcionController implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
+    private final ParametroService parametroService;
     private final InscripcionService inscripcionService;
     private final ReporteService reporteService;
+
+    @Getter
+    @Setter
+    private String empresa;
 
     @Getter
     @Setter
@@ -37,9 +44,15 @@ public class InscripcionController implements Serializable {
     private Inscripcion inscripcion;
 
     @Autowired
-    public InscripcionController(InscripcionService inscripcionService, ReporteService reporteService) {
+    public InscripcionController(ParametroService parametroService, InscripcionService inscripcionService, ReporteService reporteService) {
+        this.parametroService = parametroService;
         this.inscripcionService = inscripcionService;
         this.reporteService = reporteService;
+    }
+
+    public void a() {
+        Parametro parametro = parametroService.getById(1);
+        empresa = parametro.getEmpresa();
     }
 
     public void buscar() {
