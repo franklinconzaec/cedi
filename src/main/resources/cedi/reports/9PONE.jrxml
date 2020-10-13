@@ -2,22 +2,9 @@
 <!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="9PONE" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isSummaryWithPageHeaderAndFooter="true" uuid="f34248b4-b908-4b30-8839-d8aa10f18f18">
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
-	<parameter name="P1" class="java.lang.String"/>
+	<parameter name="NOMBRES" class="java.lang.String"/>
 	<parameter name="CODEQR" class="java.lang.String"/>
 	<parameter name="PONENCIA" class="java.lang.String"/>
-	<parameter name="P2" class="java.lang.String"/>
-	<parameter name="P3" class="java.lang.String"/>
-	<parameter name="P4" class="java.lang.String"/>
-	<parameter name="P5" class="java.lang.String"/>
-	<parameter name="P6" class="java.lang.String"/>
-	<parameter name="P7" class="java.lang.String"/>
-	<parameter name="P8" class="java.lang.String"/>
-	<parameter name="P9" class="java.lang.String"/>
-	<parameter name="P10" class="java.lang.String"/>
-	<parameter name="P11" class="java.lang.String"/>
-	<parameter name="P12" class="java.lang.String"/>
-	<parameter name="P13" class="java.lang.String"/>
-	<parameter name="P14" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -30,14 +17,14 @@
 				<imageExpression><![CDATA["../images/9PONE.png"]]></imageExpression>
 			</image>
 			<textField isBlankWhenNull="true">
-				<reportElement x="29" y="377" width="270" height="20" uuid="149fdb4a-9743-41ea-88c9-d3e9039cf848">
+				<reportElement x="27" y="366" width="540" height="84" uuid="149fdb4a-9743-41ea-88c9-d3e9039cf848">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<box leftPadding="0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="SansSerif" size="10" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{P1}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{NOMBRES}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="60" y="466" width="509" height="58" uuid="27640827-b962-4e33-8bbe-fabe363aca6c">
@@ -48,60 +35,6 @@
 					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{PONENCIA}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="299" y="377" width="270" height="20" uuid="3811b1f5-cf20-48a3-bd66-c2bd5523cd9e">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<box leftPadding="5"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="10" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{P2}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="29" y="397" width="270" height="20" uuid="685496ff-1e2a-4d49-9712-16a78c946fd4">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<box leftPadding="0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="10" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{P3}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="299" y="397" width="270" height="20" uuid="2fe90e81-ed23-4c12-afec-494a7a59acf6">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<box leftPadding="5"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="10" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{P4}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="29" y="417" width="270" height="20" uuid="ed21cd72-7307-4a3a-b180-90257e9a3113">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box leftPadding="0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="10" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{P5}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="299" y="417" width="270" height="20" uuid="7b635249-81e6-462c-b86b-bffc80dcc501">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<box leftPadding="5"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="10" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{P6}]]></textFieldExpression>
 			</textField>
 			<componentElement>
 				<reportElement mode="Opaque" x="10" y="745" width="73" height="73" isPrintWhenDetailOverflows="true" uuid="d9261281-8a6c-4650-a16d-168760af8e52">

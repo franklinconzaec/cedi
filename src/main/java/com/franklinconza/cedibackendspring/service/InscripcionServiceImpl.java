@@ -22,4 +22,5 @@ public class InscripcionServiceImpl implements InscripcionService {
     public List<Inscripcion> getByNombre(String nombre) {
         return inscripcionRepository.getByNombre(nombre);
     }
+
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface InscripcionRepository extends JpaRepository<Inscripcion, Integer> {
 
-    @Query("select i from Inscripcion i where upper(i.nombre) like upper(concat('%', :nombre, '%'))")
+    @Query("select distinct i, p from Inscripcion i left join i.ponentes p where upper(i.nombre) like upper(concat('%', :nombre, '%')) order by p.orden")
     List<Inscripcion> getByNombre(@Param("nombre") String nombre);
 
 }
