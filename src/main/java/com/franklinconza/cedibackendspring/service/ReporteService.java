@@ -31,10 +31,10 @@ public class ReporteService {
         if (inscripcion.getPonentes().size() > 0 && inscripcion.getPonentes().get(0).getPonencia().getId() != null) {
             String ponentes = "";
             if (inscripcion.getEvento().getId() == 5 || inscripcion.getEvento().getId() == 19 || inscripcion.getEvento().getId() == 20)
-                ponentes = inscripcion.getNombre().toUpperCase();
+                ponentes = inscripcion.getNombre();
             else
                 for (Ponente ponente : inscripcion.getPonentes().get(0).getPonencia().getPonentes())
-                    ponentes = ponentes.concat(ponente.getInscripcion().getNombre().toUpperCase()).concat("\n");
+                    ponentes = ponentes.concat(ponente.getInscripcion().getNombre()).concat("\n");
 
             if (inscripcion.getRol().getId().compareTo("PONE") == 0)
                 codeqr = codeqr + "_P";
@@ -48,7 +48,7 @@ public class ReporteService {
             parameters.put("NOMBRES", ponentes);
             parameters.put("PONENCIA", inscripcion.getPonentes().get(0).getPonencia().getTema());
         } else
-            parameters.put("NOMBRES", inscripcion.getNombre().trim().toUpperCase());
+            parameters.put("NOMBRES", inscripcion.getNombre().trim());
 
         parameters.put("CODEQR", codeqr);
 
