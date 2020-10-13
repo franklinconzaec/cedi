@@ -23,11 +23,11 @@ import java.util.Map;
 @Service
 public class ReporteService {
 
-    public <T> void certificadoPdf(Inscripcion inscripcion) throws IOException, JRException {
+    public void certificadoPdf(Inscripcion inscripcion) throws IOException, JRException {
 
         Map<String, Object> parameters = new HashMap<>();
 
-        if (inscripcion.getPonentes().get(0).getPonencia().getId() != null) {
+        if (inscripcion.getPonentes().size() > 0 && inscripcion.getPonentes().get(0).getPonencia().getId() != null) {
             String ponentes = "";
             if (inscripcion.getEvento().getId() == 5 || inscripcion.getEvento().getId() == 19 || inscripcion.getEvento().getId() == 20)
                 ponentes = inscripcion.getNombre();
@@ -54,7 +54,7 @@ public class ReporteService {
         JasperPrint jasperPrint = JasperFillManager.fillReport(file.getAbsolutePath(), parameters, new JREmptyDataSource(1));
 
         String nombreCertificado = "E" + inscripcion.getEvento().getId() + "_" + inscripcion.getRol().getId() + "_I"
-                + inscripcion.getId() + (inscripcion.getPonentes().get(0).getPonencia().getId() != null ? "_P" + inscripcion.getPonentes().get(0).getPonencia().getId() : "");
+                + inscripcion.getId() + (inscripcion.getPonentes().size() > 0 && inscripcion.getPonentes().get(0).getPonencia().getId() != null ? "_P" + inscripcion.getPonentes().get(0).getPonencia().getId() : "");
         respondeServidor(jasperPrint, nombreCertificado);
     }
 
