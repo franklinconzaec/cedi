@@ -44,10 +44,11 @@
                              emptyMessage="Usted no posee certificados para descargar" reflow="true">
 
                     <p:column headerText="Código único de certificado">
-                        <h:outputText value="#{'I'.concat(inscripcion.id)}"/>
+                        <h:outputText
+                                value="#{'I'.concat(inscripcion.id).concat(inscripcion.ponentes.size() > 0 ? ((inscripcion.rol.id.compareTo('PONE') eq 0 ? '_P' : (inscripcion.rol.id.compareTo('CONF') eq 0 ? '_C' : (inscripcion.rol.id.compareTo('INVE') eq 0 ? '_D' : ''))).concat(inscripcion.ponentes.get(0).ponencia.id)) : '')}"/>
                     </p:column>
 
-                    <p:column headerText="Usuario">
+                    <p:column headerText="Participante">
                         <h:outputText value="#{inscripcion.nombre}"/>
                     </p:column>
 

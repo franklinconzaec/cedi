@@ -26,22 +26,31 @@ public class ReporteService {
     public void certificadoPdf(Inscripcion inscripcion) throws IOException, JRException {
 
         Map<String, Object> parameters = new HashMap<>();
+        String tipo = "";
 
         if (inscripcion.getPonentes().size() > 0 && inscripcion.getPonentes().get(0).getPonencia().getId() != null) {
             String ponentes = "";
             if (inscripcion.getEvento().getId() == 5 || inscripcion.getEvento().getId() == 19 || inscripcion.getEvento().getId() == 20)
-                ponentes = inscripcion.getNombre();
+                ponentes = inscripcion.getNombre().toUpperCase();
             else
                 for (Ponente ponente : inscripcion.getPonentes().get(0).getPonencia().getPonentes())
-                    ponentes = ponentes.concat(ponente.getInscripcion().getNombre()).concat("\n");
+                    ponentes = ponentes.concat(ponente.getInscripcion().getNombre().toUpperCase()).concat("\n");
+
+            if (inscripcion.getRol().getId().compareTo("PONE") == 0)
+                tipo = "_P";
+            else if (inscripcion.getRol().getId().compareTo("CONF") == 0)
+                tipo = "_C";
+            else if (inscripcion.getRol().getId().compareTo("INVE") == 0)
+                tipo = "_D";
+
+            tipo = tipo + inscripcion.getPonentes().get(0).getPonencia().getId();
 
             parameters.put("NOMBRES", ponentes);
             parameters.put("PONENCIA", inscripcion.getPonentes().get(0).getPonencia().getTema());
         } else
             parameters.put("NOMBRES", inscripcion.getNombre().trim().toUpperCase());
 
-        parameters.put("CODEQR", "I" + inscripcion.getId()
-                + (inscripcion.getPonentes() != null && inscripcion.getPonentes().size() > 0 ? "_P" + inscripcion.getPonentes().get(0).getPonencia().getId() : ""));
+        parameters.put("CODEQR", "I" + inscripcion.getId() + tipo);
 
         File file;
         String nombreReporte = inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper";
@@ -53,8 +62,8 @@ public class ReporteService {
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(file.getAbsolutePath(), parameters, new JREmptyDataSource(1));
 
-        String nombreCertificado = "E" + inscripcion.getEvento().getId() + "_" + inscripcion.getRol().getId() + "_I"
-                + inscripcion.getId() + (inscripcion.getPonentes().size() > 0 && inscripcion.getPonentes().get(0).getPonencia().getId() != null ? "_P" + inscripcion.getPonentes().get(0).getPonencia().getId() : "");
+        String nombreCertificado = "E" + inscripcion.getEvento().getId() + "_" + inscripcion.getRol().getId() + "_I" + inscripcion.getId() + tipo;
+
         respondeServidor(jasperPrint, nombreCertificado);
     }
 
