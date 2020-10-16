@@ -22,7 +22,7 @@
                     <property name="com.jaspersoft.studio.unit.width" value="cm"/>
                     <property name="com.jaspersoft.studio.unit.height" value="cm"/>
                 </reportElement>
-                <imageExpression><![CDATA["images/22ASIS.png"]]></imageExpression>
+                <imageExpression><![CDATA["../images/22ASIS.png"]]></imageExpression>
             </image>
             <textField>
                 <reportElement x="156" y="245" width="571" height="30" uuid="149fdb4a-9743-41ea-88c9-d3e9039cf848">
