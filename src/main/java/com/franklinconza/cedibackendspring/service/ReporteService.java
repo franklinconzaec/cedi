@@ -30,7 +30,7 @@ public class ReporteService {
 
         if (inscripcion.getPonentes().size() > 0 && inscripcion.getPonentes().get(0).getPonencia().getId() != null) {
             String ponentes = "";
-            if (inscripcion.getEvento().getId() == 5 || inscripcion.getEvento().getId() == 19 || inscripcion.getEvento().getId() == 20)
+            if (inscripcion.getEvento().getId() == 5 || inscripcion.getEvento().getId() == 19 || inscripcion.getEvento().getId() == 20 || inscripcion.getEvento().getId() == 25)
                 ponentes = inscripcion.getNombre();
             else
                 for (Ponente ponente : inscripcion.getPonentes().get(0).getPonencia().getPonentes())
