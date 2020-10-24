@@ -20,7 +20,7 @@ public interface CertificadoRepository extends JpaRepository<Certificado, String
             "left join certificados.ponentes pot on (pot.inscripcion=ins.id) " +
             "left join certificados.ponencias pon on (pon.id=pot.ponencia) " +
             "where upper(translate(ins.nombre, 'ÁÉÍÓÚáéíóú', 'AEIOUaeiou')) like upper(translate(concat('%', :nombre, '%'), 'ÁÉÍÓÚáéíóú', 'AEIOUaeiou')) " +
-            "order by ins.nombre, eve.id, ins.id, pon.id desc", nativeQuery = true)
+            "order by ins.nombre, eve.id desc", nativeQuery = true)
     List<Certificado> getByNombre(@Param("nombre") String nombre);
 
 }

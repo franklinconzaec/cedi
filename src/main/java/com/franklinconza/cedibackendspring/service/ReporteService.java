@@ -33,11 +33,10 @@ public class ReporteService {
 
         File file;
         String nombreReporte = certificado.getEventoid() + certificado.getRolid() + ".jasper";
-        if (System.getProperty("os.name").startsWith("Windows") || System.getProperty("os.name").startsWith("Mac")) {
+        if (System.getProperty("os.name").startsWith("Windows") || System.getProperty("os.name").startsWith("Mac"))
             file = ResourceUtils.getFile("classpath:cedi/reports/" + nombreReporte);
-        } else {
+        else
             file = new File("/app/src/main/resources/cedi/reports/" + nombreReporte);
-        }
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(file.getAbsolutePath(), parameters, new JREmptyDataSource(1));
 
