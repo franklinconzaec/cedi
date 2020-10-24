@@ -14,64 +14,64 @@
 
         <p:layoutUnit position="north" resizable="true">
             <h:panelGrid>
-                <p:outputLabel value="#{inscripcionController.empresa}"
+                <p:outputLabel value="#{certificadoController.empresa}"
                                style="font-size: 19px; font-weight: bold;"/>
                 <p:outputLabel value="Módulo para la descarga de CErtificados DIgitales"
                                style="font-size: 19px; font-weight: bold;"/>
             </h:panelGrid>
-        </p:layoutUnit>
-
-        <p:layoutUnit position="center">
 
             <h:form id="busqueda">
                 <br></br>
                 <div class="ui-g">
                     <div class="ui-g-12 ui-md-6 ui-lg-9">
                 <span class="ui-float-label">
-                    <p:inputText value="#{inscripcionController.nombre}" required="true" style="width: 100%"/>
+                    <p:inputText value="#{certificadoController.nombre}" required="true" style="width: 100%"/>
                     <p:outputLabel for="@previous" value="Ingrese sus nombres o apellidos"/>
                 </span>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <p:commandButton value="Buscar" actionListener="#{inscripcionController.buscar}"
+                        <p:commandButton value="Buscar" actionListener="#{certificadoController.buscar}"
                                          update="formCertificadosPonencias" style="width: 100%"/>
                     </div>
                 </div>
             </h:form>
+        </p:layoutUnit>
+
+        <p:layoutUnit position="center">
 
             <h:form id="formCertificadosPonencias" target="_blank">
-                <p:dataTable var="inscripcion" value="#{inscripcionController.inscripciones}"
-                             emptyMessage="Usted no posee certificados para descargar" reflow="true">
+                <p:dataTable var="certificado" value="#{certificadoController.certificados}"
+                             reflow="true" emptyMessage="Usted no posee certificados para descargar">
+
+                    <p:column headerText="Participante" groupRow="true">
+                        <h:outputText value="#{certificado.participante}"/>
+                    </p:column>
 
                     <p:column headerText="Código único de certificado">
                         <h:outputText
-                                value="#{'I'.concat(inscripcion.id).concat(inscripcion.ponentes.size() > 0 ? ((inscripcion.rol.id.compareTo('PONE') eq 0 ? '_P' : (inscripcion.rol.id.compareTo('CONF') eq 0 ? '_C' : (inscripcion.rol.id.compareTo('INVE') eq 0 ? '_D' : ''))).concat(inscripcion.ponentes.get(0).ponencia.id)) : '')}"/>
-                    </p:column>
-
-                    <p:column headerText="Participante">
-                        <h:outputText value="#{inscripcion.nombre}"/>
+                                value="#{certificado.id}"/>
                     </p:column>
 
                     <p:column headerText="Tipo Participante">
-                        <h:outputText value="#{inscripcion.rol.descripcion}"/>
+                        <h:outputText value="#{certificado.rol}"/>
                     </p:column>
 
                     <p:column headerText="Evento">
-                        <h:outputText value="#{inscripcion.evento.nombre}"/>
+                        <h:outputText value="#{certificado.evento}"/>
                     </p:column>
 
-                    <p:column headerText="Ponencia">
+                    <p:column headerText="Tema">
                         <h:outputText
-                                value="#{inscripcion.ponentes.size() > 0 ? inscripcion.ponentes.get(0).ponencia.tema : ''}"/>
+                                value="#{certificado.tema}"/>
                     </p:column>
 
                     <p:column headerText="Descargar" style="text-align: center;">
                         <p:tooltip for="btnDescargar" value="Descargar"/>
                         <p:commandButton id="btnDescargar" value="Descargar"
-                                         action="#{inscripcionController.descargarCertificado}"
+                                         action="#{certificadoController.descargarCertificado}"
                                          ajax="false">
-                            <f:setPropertyActionListener value="#{inscripcion}"
-                                                         target="#{inscripcionController.inscripcion}"/>
+                            <f:setPropertyActionListener value="#{certificado}"
+                                                         target="#{certificadoController.certificado}"/>
                         </p:commandButton>
                     </p:column>
 

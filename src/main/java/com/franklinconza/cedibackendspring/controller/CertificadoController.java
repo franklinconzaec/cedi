@@ -1,8 +1,8 @@
 package com.franklinconza.cedibackendspring.controller;
 
-import com.franklinconza.cedibackendspring.model.Inscripcion;
+import com.franklinconza.cedibackendspring.model.Certificado;
 import com.franklinconza.cedibackendspring.model.Parametro;
-import com.franklinconza.cedibackendspring.service.InscripcionService;
+import com.franklinconza.cedibackendspring.service.CertificadoService;
 import com.franklinconza.cedibackendspring.service.ParametroService;
 import com.franklinconza.cedibackendspring.service.ReporteService;
 import lombok.Getter;
@@ -17,7 +17,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Controller
-public class InscripcionController implements Serializable {
+public class CertificadoController implements Serializable {
 
     /**
      *
@@ -25,7 +25,7 @@ public class InscripcionController implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private final ParametroService parametroService;
-    private final InscripcionService inscripcionService;
+    private final CertificadoService certificadoService;
     private final ReporteService reporteService;
 
     @Getter
@@ -38,16 +38,16 @@ public class InscripcionController implements Serializable {
 
     @Getter
     @Setter
-    private List<Inscripcion> inscripciones;
+    private List<Certificado> certificados;
 
     @Getter
     @Setter
-    private Inscripcion inscripcion;
+    private Certificado certificado;
 
     @Autowired
-    public InscripcionController(ParametroService parametroService, InscripcionService inscripcionService, ReporteService reporteService) {
+    public CertificadoController(ParametroService parametroService, CertificadoService certificadoService, ReporteService reporteService) {
         this.parametroService = parametroService;
-        this.inscripcionService = inscripcionService;
+        this.certificadoService = certificadoService;
         this.reporteService = reporteService;
     }
 
@@ -58,11 +58,11 @@ public class InscripcionController implements Serializable {
     }
 
     public void buscar() {
-        inscripciones = inscripcionService.getByNombre(nombre);
+        certificados = certificadoService.getByNombre(nombre);
     }
 
     public void descargarCertificado() throws IOException, JRException {
-        reporteService.certificadoPdf(inscripcion);
+        reporteService.certificadoPdf(certificado);
     }
 
 }

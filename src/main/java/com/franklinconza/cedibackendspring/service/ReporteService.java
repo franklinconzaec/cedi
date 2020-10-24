@@ -1,7 +1,6 @@
 package com.franklinconza.cedibackendspring.service;
 
-import com.franklinconza.cedibackendspring.model.Inscripcion;
-import com.franklinconza.cedibackendspring.model.Ponente;
+import com.franklinconza.cedibackendspring.model.Certificado;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -23,37 +22,17 @@ import java.util.Map;
 @Service
 public class ReporteService {
 
-    public void certificadoPdf(Inscripcion inscripcion) throws IOException, JRException {
+    public void certificadoPdf(Certificado certificado) throws IOException, JRException {
 
         Map<String, Object> parameters = new HashMap<>();
-        String codeqr = "I" + inscripcion.getId();
 
-        if (inscripcion.getPonentes().size() > 0 && inscripcion.getPonentes().get(0).getPonencia().getId() != null) {
-            String ponentes = "";
-            if (inscripcion.getEvento().getId() == 5 || inscripcion.getEvento().getId() == 19 || inscripcion.getEvento().getId() == 20 || inscripcion.getEvento().getId() == 25)
-                ponentes = inscripcion.getNombre();
-            else
-                for (Ponente ponente : inscripcion.getPonentes().get(0).getPonencia().getPonentes())
-                    ponentes = ponentes.concat(ponente.getInscripcion().getNombre()).concat("\n");
-
-            if (inscripcion.getRol().getId().compareTo("PONE") == 0)
-                codeqr = codeqr + "_P";
-            else if (inscripcion.getRol().getId().compareTo("CONF") == 0)
-                codeqr = codeqr + "_C";
-            else if (inscripcion.getRol().getId().compareTo("INVE") == 0)
-                codeqr = codeqr + "_D";
-
-            codeqr = codeqr + inscripcion.getPonentes().get(0).getPonencia().getId();
-
-            parameters.put("NOMBRES", ponentes);
-            parameters.put("PONENCIA", inscripcion.getPonentes().get(0).getPonencia().getTema());
-        } else
-            parameters.put("NOMBRES", inscripcion.getNombre().trim());
-
-        parameters.put("CODEQR", codeqr);
+        parameters.put("NOMBRES", certificado.getParticipante());
+        parameters.put("CODEQR", certificado.getId());
+        if (certificado.getTema() != null)
+            parameters.put("PONENCIA", certificado.getTema());
 
         File file;
-        String nombreReporte = inscripcion.getEvento().getId() + inscripcion.getRol().getId() + ".jasper";
+        String nombreReporte = certificado.getEventoid() + certificado.getRolid() + ".jasper";
         if (System.getProperty("os.name").startsWith("Windows") || System.getProperty("os.name").startsWith("Mac")) {
             file = ResourceUtils.getFile("classpath:cedi/reports/" + nombreReporte);
         } else {
@@ -62,7 +41,7 @@ public class ReporteService {
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(file.getAbsolutePath(), parameters, new JREmptyDataSource(1));
 
-        respondeServidor(jasperPrint, codeqr);
+        respondeServidor(jasperPrint, certificado.getId());
     }
 
     public void respondeServidor(JasperPrint jasperPrint, String nombreCertificado) throws JRException, IOException {
