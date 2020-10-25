@@ -18,4 +18,6 @@ public class Parametro {
 
     private String empresa;
 
+    private String inicial;
+
 }

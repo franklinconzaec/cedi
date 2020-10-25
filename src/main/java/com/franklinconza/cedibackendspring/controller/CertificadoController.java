@@ -28,6 +28,8 @@ public class CertificadoController implements Serializable {
     private final CertificadoService certificadoService;
     private final ReporteService reporteService;
 
+    private Parametro parametro;
+
     @Getter
     @Setter
     private String empresa;
@@ -53,7 +55,7 @@ public class CertificadoController implements Serializable {
 
     @PostConstruct
     public void postConstruct() {
-        Parametro parametro = parametroService.getById(1);
+        parametro = parametroService.getById(1);
         empresa = parametro.getEmpresa();
     }
 
@@ -62,7 +64,7 @@ public class CertificadoController implements Serializable {
     }
 
     public void descargarCertificado() throws IOException, JRException {
-        reporteService.certificadoPdf(certificado);
+        reporteService.certificadoPdf(certificado,parametro.getInicial());
     }
 
 }

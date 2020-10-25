@@ -22,7 +22,7 @@ import java.util.Map;
 @Service
 public class ReporteService {
 
-    public void certificadoPdf(Certificado certificado) throws IOException, JRException {
+    public void certificadoPdf(Certificado certificado, String empresa) throws IOException, JRException {
 
         Map<String, Object> parameters = new HashMap<>();
 
@@ -34,9 +34,9 @@ public class ReporteService {
         File file;
         String nombreReporte = certificado.getEventoid() + certificado.getRolid() + ".jasper";
         if (System.getProperty("os.name").startsWith("Windows") || System.getProperty("os.name").startsWith("Mac"))
-            file = ResourceUtils.getFile("classpath:cedi/reports/" + nombreReporte);
+            file = ResourceUtils.getFile("classpath:reports/cedi/" + empresa + "/reports/" + nombreReporte);
         else
-            file = new File("/app/src/main/resources/cedi/reports/" + nombreReporte);
+            file = new File("/app/src/main/resources/reports/cedi/" + empresa + "/reports/" + nombreReporte);
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(file.getAbsolutePath(), parameters, new JREmptyDataSource(1));
 
