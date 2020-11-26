@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface CertificadoRepository extends JpaRepository<Certificado, String> {
 
-    @Query(value = "select case when pon.id is not then 'I'||ins.id||'_T'||pon.id else 'I'||ins.id end as id, " +
+    @Query(value = "select case when pon.id is not null then 'I'||ins.id||'_T'||pon.id else 'I'||ins.id end as id, " +
             "eve.id as eventoid, eve.nombre as evento, rol.id as rolid, rol.descripcion as rol, ins.nombre as participante, pon.tema as tema " +
             "from certificados.inscripciones ins " +
             "inner join certificados.eventos eve on (eve.id=ins.evento) " +
