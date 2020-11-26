@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.PostConstruct;
@@ -17,6 +18,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Controller
+@Scope("session")
 public class CertificadoController implements Serializable {
 
     /**
