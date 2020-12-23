@@ -17,7 +17,7 @@
 				<imageExpression><![CDATA["../images/33PONE.jpg"]]></imageExpression>
 			</image>
 			<componentElement>
-				<reportElement mode="Opaque" x="2" y="706" width="73" height="73" isPrintWhenDetailOverflows="true" uuid="075bd04b-ebbf-4ecc-b5d2-5fef7141dee9">
+				<reportElement mode="Opaque" x="37" y="506" width="73" height="73" isPrintWhenDetailOverflows="true" uuid="075bd04b-ebbf-4ecc-b5d2-5fef7141dee9">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
@@ -28,7 +28,7 @@
 				</jr:QRCode>
 			</componentElement>
 			<textField>
-				<reportElement x="75" y="761" width="83" height="15" uuid="a08a717b-bb50-49b0-b9c4-fcca0ee7356f">
+				<reportElement x="31" y="578" width="83" height="15" uuid="a08a717b-bb50-49b0-b9c4-fcca0ee7356f">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
@@ -39,7 +39,7 @@
 				<textFieldExpression><![CDATA[$P{CODEQR}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="22" y="301" width="550" height="65" uuid="4a13ac0b-81a8-48ca-98de-8fb70b04cef3">
+				<reportElement x="22" y="314" width="550" height="55" uuid="4a13ac0b-81a8-48ca-98de-8fb70b04cef3">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -48,7 +48,7 @@
 				<textFieldExpression><![CDATA[$P{NOMBRES}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="22" y="463" width="550" height="65" uuid="2e7f04b3-99ad-46a1-bd91-c3ddd9fce813">
+				<reportElement x="22" y="446" width="550" height="47" uuid="2e7f04b3-99ad-46a1-bd91-c3ddd9fce813">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
