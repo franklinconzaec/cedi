@@ -8,3 +8,6 @@ src/main/resources/cedi/.settings/org.eclipse.core.resources.prefs
 src/main/resources/reports/cedi/.classpath
 src/main/resources/reports/cedi/.project
 *.prefs
+.classpath
+.factorypath
+.project
