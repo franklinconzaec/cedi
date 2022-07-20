@@ -1,10 +1,10 @@
-package com.franklinconza.cedibackendspring.controller;
+package com.franklinconza.cedi.controller;
 
-import com.franklinconza.cedibackendspring.model.Certificado;
-import com.franklinconza.cedibackendspring.model.Parametro;
-import com.franklinconza.cedibackendspring.service.CertificadoService;
-import com.franklinconza.cedibackendspring.service.ParametroService;
-import com.franklinconza.cedibackendspring.service.ReporteService;
+import com.franklinconza.cedi.model.Certificado;
+import com.franklinconza.cedi.model.Parametro;
+import com.franklinconza.cedi.service.CertificadoService;
+import com.franklinconza.cedi.service.ParametroService;
+import com.franklinconza.cedi.service.ReporteService;
 import lombok.Getter;
 import lombok.Setter;
 import net.sf.jasperreports.engine.JRException;

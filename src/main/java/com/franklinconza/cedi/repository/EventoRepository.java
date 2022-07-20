@@ -1,6 +1,6 @@
-package com.franklinconza.cedibackendspring.repository;
+package com.franklinconza.cedi.repository;
 
-import com.franklinconza.cedibackendspring.model.Evento;
+import com.franklinconza.cedi.model.Evento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

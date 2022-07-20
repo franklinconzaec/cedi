@@ -1,7 +1,7 @@
-package com.franklinconza.cedibackendspring.service;
+package com.franklinconza.cedi.service;
 
-import com.franklinconza.cedibackendspring.model.Certificado;
-import com.franklinconza.cedibackendspring.repository.CertificadoRepository;
+import com.franklinconza.cedi.model.Certificado;
+import com.franklinconza.cedi.repository.CertificadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

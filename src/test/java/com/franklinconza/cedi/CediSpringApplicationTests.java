@@ -1,10 +1,10 @@
-package com.franklinconza.cedibackendspring;
+package com.franklinconza.cedi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CediBackendSpringApplicationTests {
+class CediSpringApplicationTests {
 
     @Test
     void contextLoads() {

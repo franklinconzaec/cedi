@@ -1,4 +1,4 @@
-package com.franklinconza.cedibackendspring.model;
+package com.franklinconza.cedi.model;
 
 import lombok.Data;
 

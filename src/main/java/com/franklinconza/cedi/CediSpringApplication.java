@@ -1,4 +1,4 @@
-package com.franklinconza.cedibackendspring;
+package com.franklinconza.cedi;
 
 import com.sun.faces.config.ConfigureListener;
 import org.springframework.boot.SpringApplication;
@@ -13,10 +13,10 @@ import javax.faces.webapp.FacesServlet;
 
 @SpringBootApplication
 @EnableTransactionManagement
-public class CediBackendSpringApplication {
+public class CediSpringApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CediBackendSpringApplication.class, args);
+        SpringApplication.run(CediSpringApplication.class, args);
     }
 
     @Bean

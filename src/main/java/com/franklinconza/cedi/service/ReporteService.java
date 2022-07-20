@@ -1,6 +1,6 @@
-package com.franklinconza.cedibackendspring.service;
+package com.franklinconza.cedi.service;
 
-import com.franklinconza.cedibackendspring.model.Certificado;
+import com.franklinconza.cedi.model.Certificado;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;

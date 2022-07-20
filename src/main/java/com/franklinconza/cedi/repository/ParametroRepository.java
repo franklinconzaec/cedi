@@ -1,6 +1,6 @@
-package com.franklinconza.cedibackendspring.repository;
+package com.franklinconza.cedi.repository;
 
-import com.franklinconza.cedibackendspring.model.Parametro;
+import com.franklinconza.cedi.model.Parametro;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

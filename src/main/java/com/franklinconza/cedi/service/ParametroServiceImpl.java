@@ -1,7 +1,7 @@
-package com.franklinconza.cedibackendspring.service;
+package com.franklinconza.cedi.service;
 
-import com.franklinconza.cedibackendspring.model.Parametro;
-import com.franklinconza.cedibackendspring.repository.ParametroRepository;
+import com.franklinconza.cedi.model.Parametro;
+import com.franklinconza.cedi.repository.ParametroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
